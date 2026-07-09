@@ -236,3 +236,5 @@ Please ensure contributions follow the existing project structure and coding sty
 ## License
 
 This project is licensed under the MIT License.
+Keep in Mind Who Ever wants To Upload There Own .ini file and Edit packages Dm Me in discord 
+@baconroaster23
