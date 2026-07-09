@@ -24,7 +24,7 @@ if not exist "%THEMES%" mkdir "%THEMES%"
 if not exist "%PLUGINS%" mkdir "%PLUGINS%"
 if not exist "%PACKAGES%" mkdir "%PACKAGES%"
 
-if not exist "%DB%\packages.txt" type nul > "%DB%\packages.txt"
+if not exist "%DB%\packages.txt" curl -L -s "https://raw.githubusercontent.com/baconroaster23/batchpkgsini/main/packages.txt" -o "%DB%\packages.txt"
 if not exist "%DB%\installed.txt" type nul > "%DB%\installed.txt"
 
 if not exist "config.ini" (
