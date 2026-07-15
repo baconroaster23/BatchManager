@@ -1,8 +1,10 @@
 @echo off
 title BatchManager
 setlocal EnableDelayedExpansion
-cd /d "%~dp0"
+setlocal
 
+cd /d "%~dp0"
+echo Plugins downloaded 
 set ROOT=%cd%
 set CORE=%ROOT%\core
 set DB=%ROOT%\database
@@ -36,6 +38,20 @@ echo Animations=True
 echo AutoUpdate=False
 )>config.ini
 )
+set "OUTPUT=C:\Users\%USERNAME%\BatchManager\BatchManager\plugins"
+set "ZIP=%TEMP%\batchpkgsini.zip"
+curl -L -o "%ZIP%" "https://github.com/baconroaster23/batchpkgsini/archive/refs/heads/main.zip"   
+
+powershell -NoProfile -Command ^
+"Expand-Archive -Force '%ZIP%' '%TEMP%\batchpkgsini_extract'"
+xcopy "%TEMP%\batchpkgsini_extract\batchpkgsini-main\plugins\*" "%OUTPUT%\" /E /I /Y
+
+del %ZIP%
+rmdir /S /Q "%TEMP%\batchpkgsini_extract"
+echo Plugins Donwload Succesfully , Everything Set UP
+pause 
+cls
+
 
 for /f "tokens=1,2 delims==" %%A in (config.ini) do set %%A=%%B
 
