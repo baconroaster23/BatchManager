@@ -43,11 +43,11 @@ set "ZIP=%TEMP%\batchpkgsini.zip"
 curl -L -o "%ZIP%" "https://github.com/baconroaster23/batchpkgsini/archive/refs/heads/main.zip"   
 
 powershell -NoProfile -Command ^
-"Expand-Archive -Force '%ZIP%' '%TEMP%\batchpkgsini_extract'"
-xcopy "%TEMP%\batchpkgsini_extract\batchpkgsini-main\plugins\*" "%OUTPUT%\" /E /I /Y
+"Expand-Archive -Force '%ZIP%' '%TEMP%\BatchManager_Update'"
+xcopy "%TEMP%\BatchManager_Update\batchpkgsini-main\plugins\*" "%OUTPUT%\" /E /I /Y
 
 del %ZIP%
-rmdir /S /Q "%TEMP%\batchpkgsini_extract"
+rmdir /S /Q "%TEMP%\BatchManager_Update"
 echo Plugins Donwload Succesfully , Everything Set UP
 pause 
 cls
